@@ -2,6 +2,22 @@
 <html>
 <head>
 	<title>Blog</title>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script type="text/javascript">
+		var blog = angular.module("myBlog", []);
+		blog.contorller('myCtrl', function($scope,$http){
+			$http({
+				url: "./data.json",
+				method: "get"
+			})
+			.then(function(response){
+				console.log(response.data);
+			})
+			.then(function(error){
+				console.log(error);
+			});
+		});
+	</script>
 </head>
 <body>
 	<h1>Hello</h1>
